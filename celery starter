@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pushd /home/app/rapidpro
+
+source env/bin/activate
+
+export C_FORCE_ROOT="true"
+
+exec python manage.py celery worker -B --loglevel=info
+
+popd
